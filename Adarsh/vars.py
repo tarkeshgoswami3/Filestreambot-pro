@@ -12,14 +12,14 @@ class Var(object):
     API_ID = int(getenv('API_ID', '20108610'))
     API_HASH = str(getenv('API_HASH', '262418f5ebe0a599821a5802a90ee1a5'))
     BOT_TOKEN = str(getenv('BOT_TOKEN', '6590978998:AAFxHZcqaRmDUeZ64mk9pCYy-n08bYVyAtI'))
-    name = str(getenv('name', 'sahoovpsbot'))
+    BOT_USERNAME = env.get("TELEGRAM_BOT_USERNAME", "sahoovpsbot")
     SLEEP_THRESHOLD = int(getenv('SLEEP_THRESHOLD', '60'))
     WORKERS = int(getenv('WORKERS', '50'))
     BIN_CHANNEL = int(getenv('BIN_CHANNEL', '-1002040564082'))
     PORT = int(getenv('PORT', '8080'))
     BIND_ADRESS = str(getenv('WEB_SERVER_BIND_ADDRESS', 'https://qrpay.fun'))
     PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
-    OWNER_ID = set(int(x) for x in os.environ.get("OWNER_ID", "52014953230").split())  
+    OWNER_ID = set(int(x) for x in os.environ.get("OWNER_ID", "2014953230").split())  
     NO_PORT = bool(getenv('NO_PORT', False))
     APP_NAME = None
     OWNER_USERNAME = str(getenv('OWNER_USERNAME', 'gauravsahoo'))
@@ -29,7 +29,7 @@ class Var(object):
     
     else:
         ON_HEROKU = False
-    FQDN = str(getenv('FQDN', '103.212.120.43')) if not ON_HEROKU or getenv('FQDN', '103.212.120.43') else APP_NAME+'.herokuapp.com'
+    FQDN = str(getenv('FQDN', 'qrpay.fun')) if not ON_HEROKU or getenv('FQDN', 'qrpay.fun') else APP_NAME+'.herokuapp.com'
     HAS_SSL=bool(getenv('HAS_SSL',False))
     if HAS_SSL:
         URL = "https://{}/".format(FQDN)
